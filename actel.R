@@ -33,4 +33,6 @@ combined_df$Index <- NULL
 
 library(usethis)
 
+use_git_config(user.name = "rangerjohn99", user.email = "rangerjohn99@gmail.com")
 
+use_git()
