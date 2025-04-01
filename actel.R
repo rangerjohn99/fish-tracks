@@ -21,6 +21,7 @@ results <- residency(tz = "Europe/Copenhagen", report = FALSE)
 
 resident <- results$residency.list
 
+### creat df that combines list and adds tag id column
 df_list <- lapply(names(resident), function(name) {
   df <- resident[[name]] # Extract the data frame
   df$tag_id <- name # Add new column with the name of the data frame
@@ -30,9 +31,3 @@ df_list <- lapply(names(resident), function(name) {
 combined_df <- bind_rows(df_list)
 
 combined_df$Index <- NULL
-
-library(usethis)
-
-use_git_config(user.name = "rangerjohn99", user.email = "rangerjohn99@gmail.com")
-
-use_git()
