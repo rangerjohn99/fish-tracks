@@ -7,20 +7,18 @@ library(ggplot2)
 library(dplyr)
 library(lubridate)
 
-exampleWorkspace("/fish tracks")
+exampleWorkspace("~/actel practice")
 
 # move into the newly created folder
-setwd('/fish tracks')
+setwd('~/actel practice')
 
-# Run analysis. Note: This will open an analysis report on your web browser.
-results <- explore(tz = "Europe/Copenhagen", report = TRUE)
-
-results <- migration(tz = "Europe/Copenhagen", report = TRUE)
-
+# Run analysis.
 results <- residency(tz = "Europe/Copenhagen", report = FALSE)
 
 # extract residency list
 resident <- results$residency.list
+
+### movement list
 
 ### create df that combines list and adds tag id column
 resident <- lapply(names(resident), function(name) {
